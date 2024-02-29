@@ -1,10 +1,12 @@
 import dotenv from "dotenv"
 import dbconnect from "./db/index.js"
+import { app } from "./app.js"
 
 
 dotenv.config({
     path:'./env'
 })
+
 
 //db connect is the async fuction so return a promise
 dbconnect()
@@ -15,8 +17,8 @@ dbconnect()
          throw error;
         })
     
-    app.listen(process.env.PORT || 3000,()=>{
-    console.log(`Server is running on port:,${process.env.PORT}`)
+    app.listen(process.env.PORT || 3000 ,()=>{
+    console.log(`Server is running on port:${process.env.PORT}`)
     
 })
 } )
